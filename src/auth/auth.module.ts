@@ -22,7 +22,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
         return {
           secret: confinService.get('JWT_SECRET'),
           signOptions: {
-            expiresIn: '9h',
+            expiresIn: '72h',
           },
         };
       },

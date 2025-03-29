@@ -3,11 +3,13 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as process from 'process';
 import { AuthModule } from './auth/auth.module';
-import { CommonModule } from './common/common.module';
 import { v2 as cloudinary } from 'cloudinary';
-import { HistoryModule } from './history/history.module';
-import { CategoryModule } from './category/category.module';
-import { CommentsModule } from './comments/comments.module';
+import { PersonaModule } from './persona/persona.module';
+import { PuestoModule } from './puesto/puesto.module';
+import { AsociacionModule } from './asociacion/asociacion.module';
+import { PersonaAsociacionModule } from './persona_asociacion/persona_asociacion.module';
+import { EmpadronamientoModule } from './empadronamiento/empadronamiento.module';
+import { UbigeoModule } from './ubigeo/ubigeo.module';
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -22,10 +24,12 @@ import { CommentsModule } from './comments/comments.module';
       synchronize: true,
     }),
     AuthModule,
-    CommonModule,
-    HistoryModule,
-    CategoryModule,
-    CommentsModule,
+    PersonaModule,
+    PuestoModule,
+    AsociacionModule,
+    PersonaAsociacionModule,
+    EmpadronamientoModule,
+    UbigeoModule,
   ],
   providers: [AuthModule],
 })

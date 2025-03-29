@@ -3,12 +3,8 @@ import {
   BeforeUpdate,
   Column,
   Entity,
-  OneToMany,
   PrimaryGeneratedColumn
 } from 'typeorm';
-import { History } from '../../history/entities/history.entity';
-import { Comment } from '../../comments/entities/comment.entity';
-import { Favorities } from '../../history/entities/history-favorities.entity';
 
 @Entity('users')
 export class User {
@@ -32,18 +28,6 @@ export class User {
 
   @Column({ type: 'text', array: true, default: ['user'] })
   roles: string[];
-
-  @OneToMany(() => History, (history) => history.user)
-  history: History;
-
-  @OneToMany(() => Comment, (history) => history.user)
-  comment: Comment;
-
-  @OneToMany(() => Favorities, (history) => history.user, {
-    cascade: true,
-    eager: true,
-  })
-  favorites: Favorities[];
 
   @BeforeInsert()
   chekFielBeforeInsert() {
